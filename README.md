@@ -26,7 +26,7 @@ Specifically, they need you to _find the two entries that sum to `2020`_ and the
 
 For example, suppose your expense report contained the following:
 
-```
+```python
 1721
 979
 366
