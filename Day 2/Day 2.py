@@ -12,7 +12,7 @@ def getInput():
     return fileInput
 
 
-def getPasswordsValid(fileInput):
+def getPasswordsValidRange(fileInput):
     validPasswords = 0
     counter = 0
     for x in range(len(fileInput)):
@@ -24,6 +24,24 @@ def getPasswordsValid(fileInput):
     return validPasswords
 
 
-validPasswords = getPasswordsValid(getInput())
+def getPasswordsValidPositions(fileInput):
+    validPasswords = 0
+    for x in range(len(fileInput)):
+        isAtFirstPos = (
+            fileInput[x][2][int(fileInput[x][0][0], base=10) - 1] == fileInput[x][1]
+        )
+        isAtSecPos = (
+            fileInput[x][2][int(fileInput[x][0][1], base=10) - 1] == fileInput[x][1]
+        )
+        if isAtFirstPos ^ isAtSecPos:
+            validPasswords += 1
+    return validPasswords
 
+
+passwordInput = getInput()
+
+validPasswords = getPasswordsValidRange(passwordInput)
+print(validPasswords)
+
+validPasswords = getPasswordsValidPositions(passwordInput)
 print(validPasswords)
