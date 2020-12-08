@@ -1,6 +1,3 @@
-import re
-
-
 def getInput():
     f = open("input.txt")
     stringList = f.read().split()
